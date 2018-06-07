@@ -11,15 +11,15 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "df27cfaa-d39f-4d9a-97ad-a72059cf35a0",
+						"id": "b9cd03ed-3304-4e91-8eb6-9fcc37b5b356",
 						"type": "text/javascript",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
 							"",
-							"pm.test(\"Response time is less than 2000ms\", function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"pm.test(\"Response time is less than 1 second\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
 							"});",
 							"",
 							"pm.test(\"Body includes text Google\", function () {",
