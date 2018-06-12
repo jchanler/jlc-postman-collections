@@ -1,0 +1,71 @@
+{
+	"info": {
+		"_postman_id": "3871b82a-51bd-41b5-9f10-598034f25422",
+		"name": "known_fail",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "some_fails",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "df75979e-e8b4-4aed-9362-094703eac8a0",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 100 ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(100);",
+							"});",
+							"",
+							"pm.test(\"Body includes text that isn't there\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"d8kckXne33jUdl6s\");",
+							"});",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "google.com",
+					"host": [
+						"google",
+						"com"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "d3ae9306-4974-463d-be27-b91243aeca56",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "09d1574a-4ddd-4771-9c96-bf6c2e8cc3c4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
