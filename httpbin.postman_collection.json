@@ -1,0 +1,84 @@
+{
+	"info": {
+		"_postman_id": "1d757229-16b2-4496-a207-ab7ad9ae97cf",
+		"name": "httpbin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get_this_and_that",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "04007b4b-3d1b-4258-b845-b0662b8f3b57",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"This is true\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.args.this).to.eql(\"true\");",
+							"});",
+							"pm.test(\"That is false\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.args.that).to.eql(\"false\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://httpbin.org/get?this=true&that=false",
+					"protocol": "http",
+					"host": [
+						"httpbin",
+						"org"
+					],
+					"path": [
+						"get"
+					],
+					"query": [
+						{
+							"key": "this",
+							"value": "true"
+						},
+						{
+							"key": "that",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "73b6d4fc-4f38-4c3c-ba9b-237e20216e75",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "655f700d-bed2-4d79-b131-7316b82de639",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
